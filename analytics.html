@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - WaterGuard</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="brand">
+        <div class="brand-icon">💧</div>
+        <div>
+            <h2>WaterGuard</h2>
+            <span>Smart Monitoring</span>
+        </div>
+    </div>
+
+    <nav>
+
+        <div class="menu-title">MAIN MENU</div>
+
+        <a href="dashboard.html" class="menu-item">
+            <span>📊</span>
+            Dashboard
+        </a>
+
+        <a href="monitoring.html" class="menu-item">
+            <span>💧</span>
+            Water Monitoring
+        </a>
+
+        <a href="equipment.html" class="menu-item">
+            <span>⚙️</span>
+            Equipment
+        </a>
+
+        <a href="alerts.html" class="menu-item">
+            <span>🚨</span>
+            Smart Alerts
+            <span class="badge">3</span>
+        </a>
+
+        <div class="menu-title">ANALYTICS</div>
+
+        <a href="analytics.html" class="menu-item active">
+            <span>📈</span>
+            Analytics
+        </a>
+
+        <a href="#" class="menu-item">
+            <span>🗓️</span>
+            History
+        </a>
+
+        <a href="#" class="menu-item">
+            <span>📄</span>
+            Reports
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <div class="system-status">
+            <div class="online-dot"></div>
+            <div>
+                <strong>System Online</strong>
+                <small>All services active</small>
+            </div>
+        </div>
+
+        <button class="logout" onclick="logout()">↪ Logout</button>
+
+    </div>
+
+</aside>
+
+
+<main class="main-content">
+
+    <div class="topbar">
+
+        <div>
+            <div class="page-label">ANALYTICS</div>
+            <h1>Water Quality Analytics</h1>
+            <p class="welcome-text">
+                Analyze historical sensor readings and identify trends.
+            </p>
+        </div>
+
+        <div class="profile">
+
+            <div class="notification">
+                🔔
+                <span class="notification-dot"></span>
+            </div>
+
+            <div class="profile-info">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Plant Operator</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="overview-cards">
+
+        <div class="metric-card">
+            <div class="metric-icon ph-icon">🧪</div>
+            <div class="metric-content">
+                <p>AVG pH</p>
+                <h2>7.2</h2>
+                <span class="good">● Normal</span>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon turbidity-icon">💧</div>
+            <div class="metric-content">
+                <p>AVG TURBIDITY</p>
+                <h2>2.4 <small>NTU</small></h2>
+                <span class="good">● Normal</span>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon flow-icon">🌊</div>
+            <div class="metric-content">
+                <p>AVG FLOW RATE</p>
+                <h2>82 <small>L/min</small></h2>
+                <span class="good">● Stable</span>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon pressure-icon">⚙️</div>
+            <div class="metric-content">
+                <p>AVG PRESSURE</p>
+                <h2>3.2 <small>bar</small></h2>
+                <span class="good">● Normal</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Water Quality Trend</h2>
+                    <p>Historical pH and turbidity readings</p>
+                </div>
+
+                <select id="periodSelect" onchange="updateChart()">
+                    <option value="24">Last 24 Hours</option>
+                    <option value="7">Last 7 Days</option>
+                    <option value="30">Last 30 Days</option>
+                </select>
+
+            </div>
+
+            <div style="height:320px;">
+                <canvas id="qualityChart"></canvas>
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="panel-header">
+                <div>
+                    <h2>Parameter Status</h2>
+                    <p>Current operating condition</p>
+                </div>
+            </div>
+
+            <div class="equipment-list">
+
+                <div class="equipment-row">
+                    <div class="equipment-name">
+                        <div class="equipment-icon">🧪</div>
+                        <div>
+                            <strong>pH Level</strong>
+                            <small>Safe range: 6.5 - 8.5</small>
+                        </div>
+                    </div>
+                    <span class="status-running">7.2 Normal</span>
+                </div>
+
+                <div class="equipment-row">
+                    <div class="equipment-name">
+                        <div class="equipment-icon">💧</div>
+                        <div>
+                            <strong>Turbidity</strong>
+                            <small>Limit: &lt; 4 NTU</small>
+                        </div>
+                    </div>
+                    <span class="status-running">2.1 Normal</span>
+                </div>
+
+                <div class="equipment-row">
+                    <div class="equipment-name">
+                        <div class="equipment-icon">🌊</div>
+                        <div>
+                            <strong>Flow Rate</strong>
+                            <small>Operating range</small>
+                        </div>
+                    </div>
+                    <span class="status-running">82 L/min</span>
+                </div>
+
+                <div class="equipment-row">
+                    <div class="equipment-name">
+                        <div class="equipment-icon">⚙️</div>
+                        <div>
+                            <strong>Pressure</strong>
+                            <small>Limit: &lt; 4 bar</small>
+                        </div>
+                    </div>
+                    <span class="status-running">3.4 bar</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+                <h2>Analytics Summary</h2>
+                <p>System performance overview</p>
+            </div>
+
+        </div>
+
+        <div class="alert-list">
+
+            <div class="alert-item success">
+                <div class="alert-icon">✓</div>
+                <div>
+                    <strong>Water quality is stable</strong>
+                    <small>Most parameters remained within safe limits.</small>
+                </div>
+            </div>
+
+            <div class="alert-item info">
+                <div class="alert-icon">📈</div>
+                <div>
+                    <strong>Trend monitoring active</strong>
+                    <small>Historical sensor data is being analyzed.</small>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="analytics.js"></script>
+
+</body>
+</html>
