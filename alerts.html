@@ -13,7 +13,6 @@
 
         <div class="brand">
             <div class="brand-icon">💧</div>
-
             <div>
                 <h2>WaterGuard</h2>
                 <span>Smart Monitoring</span>
@@ -47,17 +46,17 @@
 
             <p class="menu-title">ANALYTICS</p>
 
-            <a href="#" class="menu-item">
+            <a href="analytics.html" class="menu-item">
                 <span>📈</span>
                 Analytics
             </a>
 
-            <a href="#" class="menu-item">
+            <a href="history.html" class="menu-item">
                 <span>📅</span>
                 History
             </a>
 
-            <a href="#" class="menu-item">
+            <a href="reports.html" class="menu-item">
                 <span>📄</span>
                 Reports
             </a>
@@ -68,7 +67,6 @@
 
             <div class="system-status">
                 <span class="online-dot"></span>
-
                 <div>
                     <strong>System Online</strong>
                     <small>All services active</small>
@@ -100,22 +98,66 @@
 
             <div class="profile">
 
-                <div class="notification">
-                    🔔
-                    <span class="notification-dot"></span>
-                </div>
+                <!-- ================= NOTIFICATION BELL ================= -->
 
-                <div class="profile-info">
+                <div class="notification-wrapper">
 
-                    <div class="avatar">
-                        A
+                    <div class="notification" onclick="toggleNotifications(event)">
+                        🔔
+                        <span class="notification-dot"></span>
                     </div>
 
+                    <div class="notification-dropdown" id="notificationDropdown">
+
+                        <div class="notification-header">
+                            <strong>Notifications</strong>
+                            <span class="notification-count">3 new</span>
+                        </div>
+
+                        <div class="notification-list">
+
+                            <div class="notification-item">
+                                <div class="notif-icon warning">⚠️</div>
+                                <div>
+                                    <strong>Pressure variation detected</strong>
+                                    <small>Current pressure: 4.2 bar · 10 min ago</small>
+                                </div>
+                            </div>
+
+                            <div class="notification-item">
+                                <div class="notif-icon warning">⚠️</div>
+                                <div>
+                                    <strong>High turbidity detected</strong>
+                                    <small>Current turbidity: 4.8 NTU · 25 min ago</small>
+                                </div>
+                            </div>
+
+                            <div class="notification-item">
+                                <div class="notif-icon warning">⚠️</div>
+                                <div>
+                                    <strong>pH approaching upper threshold</strong>
+                                    <small>Current pH: 8.2 · 35 min ago</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="alerts.html" class="notification-footer">
+                            View all alerts →
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= PROFILE ================= -->
+
+                <div class="profile-info">
+                    <div class="avatar">A</div>
                     <div>
                         <strong>Admin</strong>
                         <small>Plant Operator</small>
                     </div>
-
                 </div>
 
             </div>
@@ -126,62 +168,39 @@
         <section class="overview-cards">
 
             <div class="metric-card">
-
-                <div class="metric-icon pressure-icon">
-                    🚨
-                </div>
-
+                <div class="metric-icon pressure-icon">🚨</div>
                 <div class="metric-content">
                     <p>ACTIVE ALERTS</p>
                     <h2 id="activeAlertCount">3</h2>
                     <span class="good">● Monitoring</span>
                 </div>
-
             </div>
 
-
             <div class="metric-card">
-
-                <div class="metric-icon turbidity-icon">
-                    ⚠️
-                </div>
-
+                <div class="metric-icon turbidity-icon">⚠️</div>
                 <div class="metric-content">
                     <p>WARNINGS</p>
                     <h2 id="warningCount">2</h2>
                     <span class="good">● Attention Required</span>
                 </div>
-
             </div>
 
-
             <div class="metric-card">
-
-                <div class="metric-icon ph-icon">
-                    🔴
-                </div>
-
+                <div class="metric-icon ph-icon">🔴</div>
                 <div class="metric-content">
                     <p>CRITICAL</p>
                     <h2 id="criticalCount">1</h2>
                     <span class="good">● Immediate Action</span>
                 </div>
-
             </div>
 
-
             <div class="metric-card">
-
-                <div class="metric-icon flow-icon">
-                    ✅
-                </div>
-
+                <div class="metric-icon flow-icon">✅</div>
                 <div class="metric-content">
                     <p>RESOLVED</p>
                     <h2 id="resolvedCount">12</h2>
                     <span class="good">● Completed</span>
                 </div>
-
             </div>
 
         </section>
@@ -193,69 +212,37 @@
 
                 <div>
                     <h2>Active Alerts</h2>
-
-                    <p>
-                        Abnormal conditions detected by the monitoring system
-                    </p>
+                    <p>Abnormal conditions detected by the monitoring system</p>
                 </div>
 
-                <span class="alert-count">
-                    3
-                </span>
+                <span class="alert-count">3</span>
 
             </div>
-
 
             <div class="alert-list">
 
                 <div class="alert-item warning">
-
-                    <div class="alert-icon">
-                        ⚠️
-                    </div>
-
+                    <div class="alert-icon">⚠️</div>
                     <div>
                         <strong>Pressure variation detected</strong>
-
-                        <small>
-                            Current pressure: 4.2 bar · 10 minutes ago
-                        </small>
+                        <small>Current pressure: 4.2 bar · 10 minutes ago</small>
                     </div>
-
                 </div>
 
-
                 <div class="alert-item warning">
-
-                    <div class="alert-icon">
-                        ⚠️
-                    </div>
-
+                    <div class="alert-icon">⚠️</div>
                     <div>
                         <strong>High turbidity detected</strong>
-
-                        <small>
-                            Current turbidity: 4.8 NTU · 25 minutes ago
-                        </small>
+                        <small>Current turbidity: 4.8 NTU · 25 minutes ago</small>
                     </div>
-
                 </div>
 
-
                 <div class="alert-item warning">
-
-                    <div class="alert-icon">
-                        ⚠️
-                    </div>
-
+                    <div class="alert-icon">⚠️</div>
                     <div>
                         <strong>pH approaching upper threshold</strong>
-
-                        <small>
-                            Current pH: 8.2 · 35 minutes ago
-                        </small>
+                        <small>Current pH: 8.2 · 35 minutes ago</small>
                     </div>
-
                 </div>
 
             </div>
@@ -266,77 +253,39 @@
         <section class="panel">
 
             <div class="panel-header">
-
                 <div>
                     <h2>Live Threshold Check</h2>
-
-                    <p>
-                        Test sensor values against configured safety limits
-                    </p>
+                    <p>Test sensor values against configured safety limits</p>
                 </div>
-
             </div>
-
 
             <div class="quality-details">
 
                 <div>
                     <span>pH</span>
-
-                    <input
-                        id="phValue"
-                        type="number"
-                        step="0.1"
-                        value="7.2"
-                    >
+                    <input id="phValue" type="number" step="0.1" value="7.2">
                 </div>
-
 
                 <div>
                     <span>Turbidity (NTU)</span>
-
-                    <input
-                        id="turbidityValue"
-                        type="number"
-                        step="0.1"
-                        value="2.1"
-                    >
+                    <input id="turbidityValue" type="number" step="0.1" value="2.1">
                 </div>
-
 
                 <div>
                     <span>Pressure (bar)</span>
-
-                    <input
-                        id="pressureValue"
-                        type="number"
-                        step="0.1"
-                        value="3.4"
-                    >
+                    <input id="pressureValue" type="number" step="0.1" value="3.4">
                 </div>
-
 
                 <div>
                     <span>Temperature (°C)</span>
-
-                    <input
-                        id="temperatureValue"
-                        type="number"
-                        step="0.1"
-                        value="26.5"
-                    >
+                    <input id="temperatureValue" type="number" step="0.1" value="26.5">
                 </div>
 
             </div>
 
-
-            <button
-                onclick="checkAlerts()"
-                class="check-button"
-            >
+            <button onclick="checkAlerts()" class="check-button">
                 🔍 Check Parameters
             </button>
-
 
             <div id="alertResult"></div>
 
@@ -346,117 +295,56 @@
         <section class="panel">
 
             <div class="panel-header">
-
                 <div>
                     <h2>Alert Thresholds</h2>
-
-                    <p>
-                        Safe limits used by the monitoring system
-                    </p>
+                    <p>Safe limits used by the monitoring system</p>
                 </div>
-
             </div>
-
 
             <div class="equipment-list">
 
                 <div class="equipment-row">
-
                     <div class="equipment-name">
-
-                        <div class="equipment-icon">
-                            💧
-                        </div>
-
+                        <div class="equipment-icon">💧</div>
                         <div>
                             <strong>pH Level</strong>
-
-                            <small>
-                                Safe range: 6.5 - 8.5
-                            </small>
+                            <small>Safe range: 6.5 - 8.5</small>
                         </div>
-
                     </div>
-
-                    <span class="status-running">
-                        Normal
-                    </span>
-
+                    <span class="status-running">Normal</span>
                 </div>
 
-
                 <div class="equipment-row">
-
                     <div class="equipment-name">
-
-                        <div class="equipment-icon">
-                            🌊
-                        </div>
-
+                        <div class="equipment-icon">🌊</div>
                         <div>
                             <strong>Turbidity</strong>
-
-                            <small>
-                                Warning above 4 NTU
-                            </small>
+                            <small>Warning above 4 NTU</small>
                         </div>
-
                     </div>
-
-                    <span class="status-running">
-                        Normal
-                    </span>
-
+                    <span class="status-running">Normal</span>
                 </div>
 
-
                 <div class="equipment-row">
-
                     <div class="equipment-name">
-
-                        <div class="equipment-icon">
-                            ⚡
-                        </div>
-
+                        <div class="equipment-icon">⚡</div>
                         <div>
                             <strong>Pressure</strong>
-
-                            <small>
-                                Warning above 4 bar
-                            </small>
+                            <small>Warning above 4 bar</small>
                         </div>
-
                     </div>
-
-                    <span class="status-running">
-                        Normal
-                    </span>
-
+                    <span class="status-running">Normal</span>
                 </div>
 
-
                 <div class="equipment-row">
-
                     <div class="equipment-name">
-
-                        <div class="equipment-icon">
-                            🌡️
-                        </div>
-
+                        <div class="equipment-icon">🌡️</div>
                         <div>
                             <strong>Temperature</strong>
-
-                            <small>
-                                Warning above 35°C
-                            </small>
+                            <small>Warning above 35°C</small>
                         </div>
-
                     </div>
-
-                    <span class="status-running">
-                        Normal
-                    </span>
-
+                    <span class="status-running">Normal</span>
                 </div>
 
             </div>
@@ -467,40 +355,17 @@
         <section class="panel">
 
             <div class="panel-header">
-
                 <div>
                     <h2>Alert Workflow</h2>
-
-                    <p>
-                        How the intelligent alert system works
-                    </p>
+                    <p>How the intelligent alert system works</p>
                 </div>
-
             </div>
 
-
             <div class="quality-details">
-
-                <div>
-                    <span>1. Sensor Reading</span>
-                    <strong>✓</strong>
-                </div>
-
-                <div>
-                    <span>2. Threshold Check</span>
-                    <strong>✓</strong>
-                </div>
-
-                <div>
-                    <span>3. Alert Generated</span>
-                    <strong>✓</strong>
-                </div>
-
-                <div>
-                    <span>4. Operator Action</span>
-                    <strong>→</strong>
-                </div>
-
+                <div><span>1. Sensor Reading</span><strong>✓</strong></div>
+                <div><span>2. Threshold Check</span><strong>✓</strong></div>
+                <div><span>3. Alert Generated</span><strong>✓</strong></div>
+                <div><span>4. Operator Action</span><strong>→</strong></div>
             </div>
 
         </section>
@@ -513,8 +378,34 @@
     <script>
 
         function logout() {
+            sessionStorage.clear();
             window.location.href = "index.html";
         }
+
+        // ===============================
+        // NOTIFICATION BELL
+        // ===============================
+
+        function toggleNotifications(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById("notificationDropdown");
+            if (dropdown) dropdown.classList.toggle("open");
+        }
+
+        document.addEventListener("click", function(event) {
+            const dropdown = document.getElementById("notificationDropdown");
+            const wrapper  = document.querySelector(".notification-wrapper");
+            if (dropdown && wrapper && !wrapper.contains(event.target)) {
+                dropdown.classList.remove("open");
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                const dropdown = document.getElementById("notificationDropdown");
+                if (dropdown) dropdown.classList.remove("open");
+            }
+        });
 
     </script>
 
